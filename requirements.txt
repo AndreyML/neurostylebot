@@ -1,0 +1,12 @@
+ado-py==0.0.7
+aiodns==2.0.0
+aiogram==2.11.2
+Pillow==8.0.1
+python-dotenv==0.15.0
+-f https://download.pytorch.org/whl/torch_stable.html
+torch==1.7.1+cpu
+torchvision==0.8.2+cpu
+typing-extensions==3.7.4.3
+ujson==4.0.1
+urllib3==1.26.8
+yarl==1.6.3
