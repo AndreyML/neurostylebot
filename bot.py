@@ -63,7 +63,7 @@ async def chat1(message: types.Message):
 
 @dp.message_handler(content_types=['photo'], state=Test.P1)
 async def handle_photo1(message: types.Message, state: FSMContext):
-    await message.photo[-1].download('images/styles/content_image.jpg')
+    await message.photo[-1].download('./images/styles/content_image.jpg')
     await bot.send_message(message.chat.id, 'Фото успешно загружено!')
     await bot.send_message(message.chat.id, 'А теперь выбери стиль ')
     style_reply_markup = types.InlineKeyboardMarkup(row_width=2, one_time_keyboard=True)
@@ -85,7 +85,7 @@ async def handle_photo1(message: types.Message, state: FSMContext):
 
 @dp.message_handler(content_types=['photo'], state=Test.P2)
 async def handle_photo2(message: types.Message, state: FSMContext):
-    await message.photo[-1].download('images/styles/mystyle_image.jpg')
+    await message.photo[-1].download('./images/styles/mystyle_image.jpg')
     await bot.send_message(message.chat.id, 'Получил')
     copyfile('images/styles/mystyle_image.jpg', 'images/styles/style_image.jpg')
     await state.finish()
@@ -114,7 +114,7 @@ async def callback_inline1(call):
                                        'Интересно поработать с чем-то новым! Cкинь мне свое фото стиля')
 
             # remove inline buttons
-            await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text='',
+            await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text='...',
                                         reply_markup=None)
             await Test.next()
 
@@ -163,7 +163,7 @@ async def callback_inline2(call):
                 await bot.send_message(call.message.chat.id, 'Надеюсь, это останется между нами... 👉👈')
 
             # remove inline buttons
-            await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text='',
+            await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text='...',
                                         reply_markup=None)
             await Test.first()
 
