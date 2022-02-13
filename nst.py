@@ -36,12 +36,12 @@ class ImageProcessing():
 
 
     def get_imsize(self, img_path):
-        image = Image.open(img_path)
+        image = Image.open(img_path).convert('RGB')
         return image.size
 
 
     def image_loader(self, img_path):
-        image = Image.open(img_path)
+        image = Image.open(img_path).convert('RGB')
         image = self.loader(image).unsqueeze(0)
         return image.to(self.device, torch.float)
 
