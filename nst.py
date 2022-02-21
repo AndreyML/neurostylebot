@@ -23,7 +23,7 @@ class ImageProcessing():
         self.unloader = transforms.ToPILImage()
         self.device = device
 
-        self.imsize = min(500, min(min(self.get_imsize(self.content_image_name)),
+        self.imsize = min(512, min(min(self.get_imsize(self.content_image_name)),
                                    min(self.get_imsize(self.style_image_name))))
 
         self.loader = transforms.Compose([
