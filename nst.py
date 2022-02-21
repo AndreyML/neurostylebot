@@ -23,7 +23,7 @@ class ImageProcessing():
         self.unloader = transforms.ToPILImage()
         self.device = device
 
-        self.imsize = min(512, min(min(self.get_imsize(self.content_image_name)),
+        self.imsize = min(256, min(min(self.get_imsize(self.content_image_name)),
                                    min(self.get_imsize(self.style_image_name))))
 
         self.loader = transforms.Compose([
@@ -168,7 +168,7 @@ class NST:
         return model, style_losses, content_losses
 
     def run_style_transfer(self, content_img_tensor, style_img_tensor, input_img_tensor,
-                           num_steps=250, style_weight=10000000, content_weight=1):
+                           num_steps=200, style_weight=10000000, content_weight=1):
 
         """Run the style transfer."""
         import time
