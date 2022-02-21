@@ -255,7 +255,7 @@ class NST:
         if self.output is None:
             raise TypeError('Nothing to save')
         else:
-            save_image(self.output[0], 'result.png')
+            save_image(self.output[0], 'result.jpg')
             print('Result saved as result.png')
 
 
@@ -270,6 +270,6 @@ async def main(content_img_path, style_img_path):
     nst_model = NST(cnn=vgg)
     nst_model.run(style_img_path, content_img_path)
 
-    save_image(nst_model.output[0], 'images/result/result.png')
+    save_image(nst_model.output[0], 'images/result/result.jpg')
 
     return 0
