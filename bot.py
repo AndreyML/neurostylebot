@@ -134,7 +134,7 @@ async def launch_nst(message):
     await nst.main(content_image_name, style_image_name)
 
     await bot.send_message(message.chat.id, 'Готово!')
-    result = open('images/result/bot-result.png', 'rb')
+    result = open('images/result/result.jpg', 'rb')
     await bot.send_photo(message.chat.id, result)
 
     result_reply_markup = types.InlineKeyboardMarkup(row_width=2)
@@ -145,7 +145,7 @@ async def launch_nst(message):
 
     result_reply_markup.add(result_reply_button1, result_reply_button2, result_reply_button3, result_reply_button4)
 
-    await bot.send_message(message.chat.id, 'Ну, как тебе?', reply_markup=result_reply_markup)
+    await bot.send_message(message.chat.id, 'Ну, как тебе?', reply_markup=result_reply_markup
 
 
 @dp.callback_query_handler(lambda call: True, state=Test.P2)
